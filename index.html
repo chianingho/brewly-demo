@@ -212,7 +212,7 @@
       overflow: hidden; position: relative;
     }
     .about-watermark {
-      position: absolute; bottom: -40px; left: 50%;
+      position: absolute; bottom: -40px; left: 0;
       font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(90px, 13vw, 150px);
       font-style: italic;
@@ -220,7 +220,7 @@
       white-space: nowrap; pointer-events: none;
       line-height: 1; z-index: 0; letter-spacing: -0.02em;
     }
-    .about > div { position: relative; z-index: 1; }
+    .about > div:not(.about-watermark) { position: relative; z-index: 1; }
     .about-slash { font-size: 0.68rem; letter-spacing: 0.22em; color: rgba(196,75,42,0.55); margin-bottom: 22px; font-family: 'Montserrat', sans-serif; font-weight: 300; }
     .about .section-title {
       font-family: 'Bodoni Moda', Georgia, serif;
@@ -246,8 +246,8 @@
     /* MEMBERSHIP - redesigned */
     .membership { background: #C44B2A; text-align: center; position: relative; overflow: hidden; }
     .membership-watermark {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      position: absolute; bottom: -40px; left: 50%;
+      transform: translateX(-50%);
       font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(100px, 16vw, 200px);
       font-style: italic;
@@ -491,16 +491,16 @@
 <!-- ABOUT -->
 <section class="about">
   <div class="about-watermark">Our Story</div>
+  <div class="about-img-wrap">
+    <div class="about-single-img">
+      <img src="about-2.png" alt="pour over coffee">
+    </div>
+  </div>
   <div>
     <h2 class="section-title">For Every Cup,<br><em>For Everyone.</em></h2>
     <p class="about-subtitle">讓好咖啡，屬於每個人</p>
     <p class="about-text">BRĒWLY 相信，真正的精品咖啡不應該只出現在高檔咖啡館。我們透過嚴謹的選豆、精準的慢焙工藝，將世界頂級產區的風味帶進每個人的日常生活。</p>
     <a href="https://www.perxona.ai/demo-site" class="btn-outline" style="display:inline-block;">Explore More</a>
-  </div>
-  <div class="about-img-wrap">
-    <div class="about-single-img">
-      <img src="about-2.png" alt="pour over coffee">
-    </div>
   </div>
 </section>
 
