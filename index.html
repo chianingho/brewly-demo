@@ -212,7 +212,7 @@
       overflow: hidden; position: relative;
     }
     .about-watermark {
-      position: absolute; bottom: -40px; left: 0;
+      position: absolute; bottom: -40px; left: 50%;
       font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(90px, 13vw, 150px);
       font-style: italic;
@@ -244,11 +244,18 @@
     .about-single-img img { width: 100%; height: 100%; object-fit: cover; transform: rotate(-4deg) scale(1.14); }
 
     /* MEMBERSHIP - redesigned */
-    .membership { background: #C44B2A; text-align: center; }
-    .membership .section-label { color: rgba(255,255,255,0.55); }
-    .membership .section-title { color: var(--white); font-family: 'Bodoni Moda', serif; }
-    .membership .section-desc { color: rgba(255,255,255,0.72); margin: 0 auto 60px; }
-    .membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-bottom: 40px; }
+    .membership { background: #C44B2A; text-align: center; position: relative; overflow: hidden; }
+    .membership-watermark {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bodoni Moda', Georgia, serif;
+      font-size: clamp(100px, 16vw, 200px);
+      font-style: italic;
+      color: rgba(255,255,255,0.13);
+      white-space: nowrap; pointer-events: none;
+      line-height: 1; z-index: 0; letter-spacing: -0.02em;
+    }
+    .membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-bottom: 0; position: relative; z-index: 1; }
     .tier-wrapper { display: flex; flex-direction: column; align-items: center; }
     .tier-wrapper:nth-child(1) .tier-card { transform: rotate(-1.5deg); }
     .tier-wrapper:nth-child(2) .tier-card { transform: rotate(1deg); }
@@ -274,18 +281,8 @@
     }
 
     /* FAQ */
-    .faq { background: var(--cream); position: relative; overflow: hidden; }
-    .faq-watermark {
-      position: absolute; bottom: -40px; right: 0;
-      font-family: 'Bodoni Moda', Georgia, serif;
-      font-size: clamp(90px, 13vw, 150px);
-      font-style: italic;
-      color: rgba(196,75,42,0.07);
-      white-space: nowrap; pointer-events: none;
-      line-height: 1; z-index: 0; letter-spacing: -0.02em;
-    }
-    .faq > .section-label, .faq > .section-title { position: relative; z-index: 1; }
-    .faq-list { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+    .faq { background: var(--cream); }
+    .faq-list { max-width: 780px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid rgba(196,75,42,0.18); }
     .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 28px 0; font-size: 1rem; font-family: inherit; color: #C44B2A; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
     .faq-q:hover { color: #a33a1f; }
@@ -295,17 +292,7 @@
     .faq-item.open .faq-a { display: block; }
 
     /* STORES */
-    .stores { background: var(--cream); position: relative; overflow: hidden; }
-    .stores-watermark {
-      position: absolute; bottom: -40px; left: 0;
-      font-family: 'Bodoni Moda', Georgia, serif;
-      font-size: clamp(90px, 13vw, 150px);
-      font-style: italic;
-      color: rgba(196,75,42,0.07);
-      white-space: nowrap; pointer-events: none;
-      line-height: 1; z-index: 0; letter-spacing: -0.02em;
-    }
-    .stores > * { position: relative; z-index: 1; }
+    .stores { background: var(--cream); }
     .stores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .store-card { background: var(--white); padding: 28px; border-radius: 4px; border-left: 3px solid #C44B2A; }
     .store-name { font-size: 0.95rem; font-weight: 600; color: #C44B2A; margin-bottom: 10px; }
@@ -519,9 +506,7 @@
 
 <!-- MEMBERSHIP -->
 <section class="membership">
-  <div class="section-label">Membership</div>
-  <h2 class="section-title">BRĒWLY 會員制度</h2>
-  <p class="section-desc">加入 BRĒWLY 會員，享受專屬折扣、紅利回饋與生日禮遇。每月 7 號會員日，不限金額免運費。</p>
+  <div class="membership-watermark">Membership</div>
   <div class="membership-grid">
     <div class="tier-wrapper">
       <div class="tier-card">
@@ -570,7 +555,6 @@
 
 <!-- FAQ -->
 <section class="faq" style="padding-top: 56px;">
-  <div class="faq-watermark">Questions</div>
   <h2 class="section-title" style="font-family:'Bodoni Moda',Georgia,serif; color:#C44B2A; white-space:nowrap;">Frequently Asked <em>Questions.</em></h2>
   <div class="faq-list">
     <div class="faq-item">
@@ -602,7 +586,6 @@
 
 <!-- STORES -->
 <section class="stores" style="padding-top: 56px;">
-  <div class="stores-watermark">Find Us</div>
   <h2 class="section-title" style="font-family:'Bodoni Moda',Georgia,serif; color:#C44B2A;">Where to <em>Find Us.</em></h2>
   <p class="section-desc" style="color:rgba(196,75,42,0.65);">全台多處合作通路，歡迎親臨體驗 BRĒWLY 精品咖啡的魅力。</p>
   <div class="stores-grid">
