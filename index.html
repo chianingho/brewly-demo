@@ -177,8 +177,9 @@
     .products-big-title {
       font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(3rem, 6.5vw, 5.5rem);
-      font-weight: normal; color: var(--white); line-height: 1;
+      font-weight: normal; color: var(--white); line-height: 1.05;
     }
+    .products-big-title em { font-style: italic; }
     .products-subheader { display: flex; justify-content: flex-end; margin-bottom: 44px; margin-top: 16px; }
     .btn-explore {
       display: inline-block; background: var(--white); color: #C44B2A;
@@ -431,7 +432,7 @@
 <section class="products">
   <div class="products-header">
     <div class="products-label">// Our Menu</div>
-    <h2 class="products-big-title">Our Products</h2>
+    <h2 class="products-big-title">Our<br><em>Products.</em></h2>
   </div>
   <div class="products-subheader">
     <a href="https://www.perxona.ai/demo-site" class="btn-explore">Explore All Products</a>
