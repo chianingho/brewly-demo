@@ -4,16 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BRĒWLY布魯力 — Anywhere. Anytime. Anyone.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'Grass';
-      src: url('grass.woff2') format('woff2'),
-           url('grass.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <script type="module" src="https://cdn.perxona.ai/asia/prod/latest/widget/entry/index.js"></script>
   <style>
     :root {
@@ -67,7 +58,7 @@
     }
     .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.28em; color: rgba(255,255,255,0.65); text-transform: uppercase; margin-bottom: 20px; }
     .hero h1 {
-      font-family: 'Grass', Georgia, serif;
+      font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(3.2rem, 8vw, 6.5rem);
       font-weight: normal; color: var(--white);
       letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 28px;
@@ -86,18 +77,97 @@
     .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--brown-dark); line-height: 1.2; margin-bottom: 20px; }
     .section-desc { font-size: 1rem; color: var(--text-light); max-width: 560px; margin-bottom: 60px; }
 
-    /* ORIGINS */
-    .origins { background: var(--white); }
-    .origins-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px; }
-    .origin-card {
-      text-align: center; padding: 24px 16px;
-      border: 1px solid rgba(184,133,58,0.2); border-radius: 4px;
-      transition: box-shadow 0.2s, border-color 0.2s;
+    /* ORIGINS - redesigned */
+    .origins {
+      background: #C44B2A;
+      padding: 64px 72px 56px;
+      position: relative;
+      overflow: hidden;
     }
-    .origin-card:hover { box-shadow: 0 4px 20px rgba(44,26,14,0.08); border-color: rgba(184,133,58,0.4); }
-    .origin-name { font-size: 0.95rem; font-weight: 600; color: var(--brown-dark); margin-bottom: 6px; }
-    .origin-region { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.05em; }
-    .origin-line { width: 24px; height: 1px; background: var(--gold); margin: 10px auto 0; }
+    .origins-slash {
+      font-size: 0.68rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.65);
+      margin-bottom: 18px; font-family: 'Montserrat', sans-serif; font-weight: 300;
+    }
+    .origins-top {
+      display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px;
+    }
+    .origins-heading {
+      font-family: 'Bodoni Moda', Georgia, serif;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      font-weight: normal; color: var(--white); line-height: 1.05;
+    }
+    .origins-heading em { font-style: italic; }
+    .origins-sub {
+      font-size: 0.82rem; color: rgba(255,255,255,0.72); text-align: right;
+      max-width: 260px; line-height: 1.75;
+      font-family: 'Montserrat', sans-serif; font-weight: 300;
+    }
+    .origins-divider { height: 1px; background: rgba(255,255,255,0.28); }
+    .origins-stage {
+      display: grid;
+      grid-template-columns: 1fr 300px 1fr;
+      gap: 0 32px;
+      padding: 52px 0 44px;
+      position: relative;
+      align-items: stretch;
+    }
+    .origins-watermark {
+      position: absolute; bottom: -30px; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Bodoni Moda', Georgia, serif;
+      font-size: clamp(90px, 13vw, 150px);
+      font-style: italic;
+      color: rgba(255,255,255,0.09);
+      white-space: nowrap; pointer-events: none;
+      line-height: 1; z-index: 0; letter-spacing: -0.02em;
+    }
+    .origins-left-col, .origins-right-col {
+      display: flex; flex-direction: column;
+      justify-content: space-between; padding: 16px 0; z-index: 1;
+    }
+    .origins-right-col { align-items: flex-end; }
+    .origins-center-col {
+      display: flex; flex-direction: column;
+      align-items: center; z-index: 1;
+    }
+    .origins-dot {
+      display: block; color: var(--white); font-size: 1rem; margin-bottom: 10px;
+    }
+    .origins-name {
+      font-family: 'Bodoni Moda', Georgia, serif;
+      font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+      color: var(--white); font-weight: normal; line-height: 1.05; margin-bottom: 5px;
+    }
+    .origins-cn {
+      font-size: 0.75rem; color: rgba(255,255,255,0.55);
+      font-family: 'Montserrat', sans-serif; font-weight: 300; margin-bottom: 4px;
+    }
+    .origins-desc {
+      font-size: 0.78rem; color: rgba(255,255,255,0.72);
+      line-height: 1.55; font-family: 'Montserrat', sans-serif; font-weight: 300;
+    }
+    .origins-right-col .origins-dot { text-align: right; }
+    .origins-right-col .origins-name { text-align: right; }
+    .origins-right-col .origins-cn { text-align: right; }
+    .origins-right-col .origins-desc { text-align: right; }
+    .origins-center-label { text-align: center; margin-bottom: 22px; }
+    .origins-center-label .origins-desc { text-align: center; }
+    .origins-center-img {
+      width: 260px; height: 340px;
+      border-radius: 140px;
+      overflow: hidden; background: rgba(255,255,255,0.1); flex-shrink: 0;
+    }
+    .origins-center-img img { width: 100%; height: 100%; object-fit: cover; }
+    .origins-footer { text-align: center; margin-top: 36px; position: relative; z-index: 1; }
+    .btn-origins {
+      display: inline-block;
+      border: 1.5px solid rgba(255,255,255,0.6); color: var(--white);
+      padding: 9px 36px; border-radius: 50px;
+      font-size: 0.8rem; letter-spacing: 0.1em;
+      font-family: 'Montserrat', sans-serif; font-weight: 300;
+      transition: background 0.2s;
+    }
+    .btn-origins:hover { background: rgba(255,255,255,0.15); }
 
     /* PRODUCTS */
     .products { background: var(--cream); }
@@ -242,35 +312,61 @@
 
 <!-- ORIGINS -->
 <section class="origins">
-  <div class="section-label">Coffee Origins</div>
-  <h2 class="section-title">五大產區精選</h2>
-  <p class="section-desc">BRĒWLY 嚴選全球五大頂級咖啡產區，每一批豆子都經過杯測評鑑，確保最佳風味呈現。</p>
-  <div class="origins-grid">
-    <div class="origin-card">
-      <div class="origin-name">衣索比亞</div>
-      <div class="origin-region">Ethiopia · Yirgacheffe</div>
-      <div class="origin-line"></div>
+  <div class="origins-top">
+    <div>
+      <div class="origins-slash">// COFFEE ORIGINS</div>
+      <h2 class="origins-heading">What We<br><em>Source.</em></h2>
     </div>
-    <div class="origin-card">
-      <div class="origin-name">哥倫比亞</div>
-      <div class="origin-region">Colombia · Huila</div>
-      <div class="origin-line"></div>
+    <p class="origins-sub">No shortcuts. No compromises.<br>Just the world's finest single-origin beans, straight from the source.</p>
+  </div>
+  <div class="origins-divider"></div>
+  <div class="origins-stage">
+    <div class="origins-watermark">origins</div>
+    <!-- Left -->
+    <div class="origins-left-col">
+      <div class="origins-item">
+        <span class="origins-dot">•</span>
+        <div class="origins-name">Ethiopia</div>
+        <div class="origins-cn">衣索比亞</div>
+        <div class="origins-desc">Yirgacheffe<br>花果香、茉莉</div>
+      </div>
+      <div class="origins-item">
+        <span class="origins-dot">•</span>
+        <div class="origins-name">Brazil</div>
+        <div class="origins-cn">巴西</div>
+        <div class="origins-desc">Cerrado<br>巧克力、醇厚</div>
+      </div>
     </div>
-    <div class="origin-card">
-      <div class="origin-name">巴西</div>
-      <div class="origin-region">Brazil · Cerrado</div>
-      <div class="origin-line"></div>
+    <!-- Center -->
+    <div class="origins-center-col">
+      <div class="origins-item origins-center-label">
+        <span class="origins-dot">•</span>
+        <div class="origins-name">Guatemala</div>
+        <div class="origins-cn">瓜地馬拉</div>
+        <div class="origins-desc">Antigua<br>黑糖、煙燻</div>
+      </div>
+      <div class="origins-center-img">
+        <img src="about-1.png" alt="coffee origin">
+      </div>
     </div>
-    <div class="origin-card">
-      <div class="origin-name">瓜地馬拉</div>
-      <div class="origin-region">Guatemala · Antigua</div>
-      <div class="origin-line"></div>
+    <!-- Right -->
+    <div class="origins-right-col">
+      <div class="origins-item">
+        <span class="origins-dot"></span>
+        <div class="origins-name">Colombia</div>
+        <div class="origins-cn">哥倫比亞</div>
+        <div class="origins-desc">Huila<br>焦糖、堅果</div>
+      </div>
+      <div class="origins-item">
+        <span class="origins-dot"></span>
+        <div class="origins-name">Kenya</div>
+        <div class="origins-cn">肯亞</div>
+        <div class="origins-desc">AA Grade<br>黑醋栗、莓果</div>
+      </div>
     </div>
-    <div class="origin-card">
-      <div class="origin-name">肯亞</div>
-      <div class="origin-region">Kenya · AA Grade</div>
-      <div class="origin-line"></div>
-    </div>
+  </div>
+  <div class="origins-footer">
+    <a href="https://www.perxona.ai/demo-site" class="btn-origins">探索豆種</a>
   </div>
 </section>
 
