@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BRĒWLY布魯力 — Anywhere. Anytime. Anyone.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Grass';
+      src: url('grass.woff2') format('woff2'),
+           url('grass.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
   <script type="module" src="https://cdn.perxona.ai/asia/prod/latest/widget/entry/index.js"></script>
   <style>
     :root {
@@ -16,52 +26,59 @@
       --text-light: #8B6F5E;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Georgia', 'Times New Roman', serif; background-color: var(--cream); color: var(--brown-dark); line-height: 1.7; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 300; background-color: var(--cream); color: var(--brown-dark); line-height: 1.7; }
     a { text-decoration: none; color: inherit; }
 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 60px;
-      background: rgba(250, 247, 242, 0.95); backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(184, 133, 58, 0.2);
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 22px 48px;
+      background: transparent;
     }
-    .nav-logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.08em; color: var(--brown-dark); }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { font-size: 0.88rem; letter-spacing: 0.05em; color: var(--brown-mid); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold); color: var(--white) !important; padding: 10px 24px; border-radius: 2px; font-size: 0.85rem; letter-spacing: 0.08em; }
-    .nav-cta:hover { background: var(--brown-mid) !important; }
+    .nav-logo { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.14em; color: var(--white); text-align: center; }
+    .nav-left { display: flex; gap: 32px; list-style: none; }
+    .nav-right { display: flex; gap: 32px; list-style: none; justify-content: flex-end; align-items: center; }
+    .nav-left a, .nav-right a { font-size: 0.82rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.88); transition: color 0.2s; }
+    .nav-left a:hover, .nav-right a:hover { color: var(--white); }
+    .nav-divider { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
 
     /* HERO */
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      background: linear-gradient(160deg, #2C1A0E 0%, #5C3D2E 60%, #4a2e1a 100%);
-      padding: 120px 40px 80px; position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: flex-end;
+      background: var(--brown-dark);
+      padding: 0; position: relative; overflow: hidden;
     }
     .hero-bg-img {
       position: absolute; inset: 0;
       background-image: url('hero-bg.png');
       background-size: cover; background-position: center;
-      opacity: 0.18;
-      mix-blend-mode: luminosity;
+      opacity: 1;
     }
-    .hero::after {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(184,133,58,0.2) 0%, transparent 70%);
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 50%, rgba(0,0,0,0.12) 100%);
     }
-    .hero-content { position: relative; z-index: 1; max-width: 780px; }
-    .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 24px; }
-    .hero h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 300; color: var(--white); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 24px; }
-    .hero h1 span { color: var(--gold-light); font-style: italic; }
-    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-bottom: 48px; letter-spacing: 0.06em; }
-    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--gold); color: var(--white); padding: 16px 40px; font-size: 0.9rem; letter-spacing: 0.1em; border-radius: 2px; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.5); color: var(--white); padding: 16px 40px; font-size: 0.9rem; letter-spacing: 0.1em; border-radius: 2px; transition: border-color 0.2s; }
-    .btn-outline:hover { border-color: var(--gold-light); }
+    .hero-content {
+      position: relative; z-index: 1;
+      width: 100%;
+      padding: 0 80px 80px;
+    }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.28em; color: rgba(255,255,255,0.65); text-transform: uppercase; margin-bottom: 20px; }
+    .hero h1 {
+      font-family: 'Grass', Georgia, serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: normal; color: var(--white);
+      letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 28px;
+    }
+    .hero h1 span { font-style: italic; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.78); margin-bottom: 48px; letter-spacing: 0.03em; max-width: 400px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: rgba(250,245,235,0.18); color: var(--white); padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; border: 1.5px solid rgba(250,245,235,0.75); font-family: 'Montserrat', sans-serif; font-weight: 300; transition: background 0.25s, border-color 0.25s; }
+    .btn-primary:hover { background: rgba(250,245,235,0.3); border-color: white; }
+    .btn-outline { background: transparent; border: 1.5px solid rgba(250,245,235,0.5); color: var(--white); padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 300; transition: background 0.25s, border-color 0.25s; }
+    .btn-outline:hover { background: rgba(250,245,235,0.12); border-color: rgba(250,245,235,0.8); }
 
     /* SECTION COMMON */
     section { padding: 100px 60px; }
@@ -171,7 +188,8 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
-      .nav-links { display: none; }
+      .nav-left, .nav-right { display: none; }
+      .hero-content { padding: 0 28px 60px; }
       section { padding: 70px 24px; }
       .origins-grid { grid-template-columns: repeat(3, 1fr); }
       .products-grid { grid-template-columns: 1fr; }
@@ -193,27 +211,31 @@
 
 <!-- NAV -->
 <nav>
+  <ul class="nav-left">
+    <li><a href="https://www.perxona.ai/demo-site">Our Beans</a></li>
+    <li><a href="https://www.perxona.ai/demo-site">Gift Sets</a></li>
+    <li><a href="https://www.perxona.ai/demo-site">Our Story</a></li>
+  </ul>
   <div class="nav-logo">BRĒWLY</div>
-  <ul class="nav-links">
-    <li><a href="https://www.perxona.ai/demo-site">關於我們</a></li>
-    <li><a href="https://www.perxona.ai/demo-site">精品咖啡豆</a></li>
-    <li><a href="https://www.perxona.ai/demo-site">客製禮盒</a></li>
-    <li><a href="https://www.perxona.ai/demo-site">會員制度</a></li>
-    <li><a href="https://www.perxona.ai/demo-site">門市據點</a></li>
-    <li><a href="https://www.perxona.ai/demo-site" class="nav-cta">立即選購</a></li>
+  <ul class="nav-right">
+    <li><a href="https://www.perxona.ai/demo-site">Membership</a></li>
+    <li><a href="https://www.perxona.ai/demo-site">Find Us</a></li>
+    <li class="nav-divider">|</li>
+    <li><a href="https://www.perxona.ai/demo-site">Shop Now</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-img"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">精品咖啡豆 · 慢焙工藝</p>
-    <h1>BREW + LOVELY<br><span>= BRĒWLY</span></h1>
+    <p class="hero-eyebrow">Specialty Coffee · Slow Roast Craft</p>
+    <h1>Coffee.<br><span>Anywhere.</span></h1>
     <p class="hero-sub">Anywhere. Anytime. Anyone.<br>讓每一杯咖啡，都成為你的日常儀式</p>
     <div class="hero-btns">
-      <a href="https://www.perxona.ai/demo-site" class="btn-primary">探索系列商品</a>
-      <a href="https://www.perxona.ai/demo-site" class="btn-outline">了解品牌故事</a>
+      <a href="https://www.perxona.ai/demo-site" class="btn-primary">探索系列</a>
+      <a href="https://www.perxona.ai/demo-site" class="btn-outline">了解品牌</a>
     </div>
   </div>
 </section>
