@@ -26,15 +26,14 @@
       display: grid; grid-template-columns: 1fr auto 1fr;
       align-items: center;
       padding: 22px 48px;
-      background: rgba(250,247,242,0.92); backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(44,26,14,0.08);
+      background: transparent;
     }
-    .nav-logo { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.14em; color: var(--brown-dark); text-align: center; }
+    .nav-logo { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.14em; color: #C44B2A; text-align: center; }
     .nav-left { display: flex; gap: 32px; list-style: none; }
     .nav-right { display: flex; gap: 32px; list-style: none; justify-content: flex-end; align-items: center; }
-    .nav-left a, .nav-right a { font-size: 0.82rem; letter-spacing: 0.05em; color: var(--brown-mid); transition: color 0.2s; }
-    .nav-left a:hover, .nav-right a:hover { color: #C44B2A; }
-    .nav-divider { color: rgba(44,26,14,0.2); font-size: 0.8rem; }
+    .nav-left a, .nav-right a { font-size: 0.82rem; letter-spacing: 0.05em; color: #C44B2A; transition: color 0.2s; }
+    .nav-left a:hover, .nav-right a:hover { color: #a33a1f; }
+    .nav-divider { color: rgba(196,75,42,0.35); font-size: 0.8rem; }
 
     /* HERO */
     .hero {
@@ -67,10 +66,10 @@
     .hero h1 span { font-style: italic; }
     .hero-sub { font-size: 1rem; color: rgba(92,61,46,0.8); margin-bottom: 48px; letter-spacing: 0.03em; max-width: 400px; line-height: 1.7; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary { background: transparent; color: #C44B2A; padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; border: 1.5px solid rgba(196,75,42,0.7); font-family: 'Montserrat', sans-serif; font-weight: 300; transition: background 0.25s, border-color 0.25s; }
-    .btn-primary:hover { background: rgba(196,75,42,0.08); border-color: #C44B2A; }
-    .btn-outline { background: transparent; border: 1.5px solid rgba(196,75,42,0.4); color: #C44B2A; padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 300; transition: background 0.25s, border-color 0.25s; }
-    .btn-outline:hover { background: rgba(196,75,42,0.06); border-color: rgba(196,75,42,0.7); }
+    .btn-primary { background: #C44B2A; color: var(--white); padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; border: 2px solid #C44B2A; font-family: 'Montserrat', sans-serif; font-weight: 500; transition: background 0.25s; }
+    .btn-primary:hover { background: #a33a1f; border-color: #a33a1f; }
+    .btn-outline { background: transparent; border: 2px solid #C44B2A; color: #C44B2A; padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 500; transition: background 0.25s, color 0.25s; }
+    .btn-outline:hover { background: #C44B2A; color: var(--white); }
 
     /* SECTION COMMON */
     section { padding: 100px 60px; }
@@ -172,39 +171,39 @@
     .btn-origins:hover { background: rgba(255,255,255,0.15); }
 
     /* PRODUCTS */
-    .products { background: #F0EDE8; padding: 80px 60px; }
+    .products { background: #C44B2A; padding: 80px 60px; }
     .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; }
-    .products-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-light); font-family: 'Montserrat', sans-serif; font-weight: 300; }
+    .products-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.65); font-family: 'Montserrat', sans-serif; font-weight: 300; }
     .products-big-title {
       font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(3rem, 6.5vw, 5.5rem);
-      font-weight: normal; color: var(--brown-dark); line-height: 1;
+      font-weight: normal; color: var(--white); line-height: 1;
     }
     .products-subheader { display: flex; justify-content: flex-end; margin-bottom: 44px; margin-top: 16px; }
     .btn-explore {
-      display: inline-block; background: #C44B2A; color: var(--white);
+      display: inline-block; background: var(--white); color: #C44B2A;
       padding: 11px 28px; border-radius: 50px;
       font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-      font-family: 'Montserrat', sans-serif; font-weight: 400;
-      transition: background 0.2s;
+      font-family: 'Montserrat', sans-serif; font-weight: 500;
+      transition: background 0.2s, color 0.2s;
     }
-    .btn-explore:hover { background: #a33a1f; }
+    .btn-explore:hover { background: var(--cream); }
     .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .product-card { background: var(--white); border-radius: 4px; overflow: hidden; }
+    .product-card { background: rgba(0,0,0,0.18); border-radius: 4px; overflow: hidden; }
     .product-meta {
       display: flex; justify-content: space-between; align-items: center;
       padding: 12px 16px 10px;
-      font-size: 0.7rem; letter-spacing: 0.1em; color: #aaa;
+      font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.5);
       font-family: 'Montserrat', sans-serif; font-weight: 300;
     }
-    .product-img { height: 280px; overflow: hidden; background: #e8e4df; }
+    .product-img { height: 280px; overflow: hidden; background: rgba(0,0,0,0.2); }
     .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
     .product-card:hover .product-img img { transform: scale(1.04); }
     .product-info { padding: 16px; }
     .product-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-    .product-name { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown-dark); font-family: 'Montserrat', sans-serif; }
-    .product-price { font-size: 0.78rem; font-weight: 400; color: var(--brown-dark); font-family: 'Montserrat', sans-serif; }
-    .product-desc { font-size: 0.72rem; color: #aaa; line-height: 1.5; font-family: 'Montserrat', sans-serif; font-weight: 300; }
+    .product-name { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); font-family: 'Montserrat', sans-serif; }
+    .product-price { font-size: 0.78rem; font-weight: 400; color: var(--white); font-family: 'Montserrat', sans-serif; }
+    .product-desc { font-size: 0.72rem; color: rgba(255,255,255,0.6); line-height: 1.5; font-family: 'Montserrat', sans-serif; font-weight: 300; }
 
     /* ABOUT */
     .about { background: var(--brown-dark); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
