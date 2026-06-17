@@ -39,17 +39,19 @@
     .hero {
       min-height: 100vh; display: flex; align-items: flex-end;
       background: var(--cream);
-      padding: 0; position: relative; overflow: hidden;
+      padding: 0; position: relative; overflow: visible;
     }
     .hero-bg-img {
       position: absolute; inset: 0;
       background-image: url('hero-bg.jpg');
       background-size: cover; background-position: center;
       opacity: 1;
+      overflow: hidden;
     }
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(250,247,242,0.55) 0%, rgba(250,247,242,0.1) 60%, transparent 100%);
+      overflow: hidden;
     }
     .hero-content {
       position: relative; z-index: 1;
@@ -71,13 +73,29 @@
     .btn-outline { background: transparent; border: 2px solid #C44B2A; color: #C44B2A; padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 500; transition: background 0.25s, color 0.25s; }
     .btn-outline:hover { background: #C44B2A; color: var(--white); }
 
+    /* Hero floating bean (破圖效果) */
+    .hero-bean-float {
+      position: absolute;
+      bottom: -26px;
+      right: 180px;
+      width: 44px;
+      height: 56px;
+      border-radius: 55% 45% 60% 40% / 48% 52% 58% 42%;
+      overflow: hidden;
+      z-index: 20;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+    .hero-bean-float img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
     /* SECTION COMMON */
     section { padding: 100px 60px; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--brown-dark); line-height: 1.2; margin-bottom: 20px; }
     .section-desc { font-size: 1rem; color: var(--text-light); max-width: 560px; margin-bottom: 60px; }
 
-    /* ORIGINS - redesigned */
+    /* ORIGINS */
     .origins {
       background: #C44B2A;
       padding: 64px 72px 56px;
@@ -97,19 +115,34 @@
       font-weight: normal; color: var(--white); line-height: 1.05;
     }
     .origins-heading em { font-style: italic; }
-    .origins-sub {
-      font-size: 0.82rem; color: rgba(255,255,255,0.72); text-align: right;
-      max-width: 260px; line-height: 1.75;
-      font-family: 'Montserrat', sans-serif; font-weight: 300;
+    .origins-divider-wrap {
+      position: relative;
+      height: 1px;
     }
-    .origins-divider { height: 1px; background: rgba(255,255,255,0.28); }
+    .origins-divider { height: 1px; background: rgba(255,255,255,0.28); position: absolute; left: 0; right: 0; top: 0; }
+    .origins-divider-bean {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 54px;
+      border-radius: 55% 45% 60% 40% / 48% 52% 58% 42%;
+      overflow: hidden;
+      z-index: 2;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+    .origins-divider-bean img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
     .origins-stage {
       display: grid;
-      grid-template-columns: 1fr 300px 1fr;
+      grid-template-columns: 240px 320px 240px;
       gap: 0 32px;
       padding: 52px 0 44px;
       position: relative;
       align-items: stretch;
+      margin: 0 auto;
     }
     .origins-watermark {
       position: absolute; bottom: -30px; left: 50%;
@@ -130,9 +163,6 @@
       display: flex; flex-direction: column;
       align-items: center; z-index: 1;
     }
-    .origins-dot {
-      display: block; color: var(--white); font-size: 1rem; margin-bottom: 10px;
-    }
     .origins-name {
       font-family: 'Bodoni Moda', Georgia, serif;
       font-size: clamp(1.7rem, 2.4vw, 2.5rem);
@@ -146,7 +176,6 @@
       font-size: 0.78rem; color: rgba(255,255,255,0.72);
       line-height: 1.55; font-family: 'Montserrat', sans-serif; font-weight: 300;
     }
-    .origins-right-col .origins-dot { text-align: right; }
     .origins-right-col .origins-name { text-align: right; }
     .origins-right-col .origins-cn { text-align: right; }
     .origins-right-col .origins-desc { text-align: right; }
@@ -206,7 +235,7 @@
     .product-price { font-size: 0.78rem; font-weight: 400; color: #C44B2A; font-family: 'Montserrat', sans-serif; }
     .product-desc { font-size: 0.72rem; color: rgba(196,75,42,0.55); line-height: 1.5; font-family: 'Montserrat', sans-serif; font-weight: 300; }
 
-    /* ABOUT - redesigned */
+    /* ABOUT */
     .about {
       background: var(--cream); padding: 100px 80px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
@@ -244,7 +273,7 @@
     }
     .about-single-img img { width: 100%; height: 100%; object-fit: cover; transform: rotate(-4deg) scale(1.14); }
 
-    /* MEMBERSHIP - redesigned */
+    /* MEMBERSHIP */
     .membership { background: #C44B2A; text-align: center; position: relative; overflow: hidden; }
     .membership-watermark {
       position: absolute; bottom: -40px; left: 50%;
@@ -366,6 +395,10 @@
       <a href="https://www.perxona.ai/demo-site" class="btn-outline">了解品牌</a>
     </div>
   </div>
+  <!-- 破圖豆子：從 Hero 底部跨入 Origins -->
+  <div class="hero-bean-float">
+    <img src="origin-center.jpg" alt="coffee bean">
+  </div>
 </section>
 
 <!-- ORIGINS -->
@@ -375,21 +408,23 @@
       <div class="origins-slash">// COFFEE ORIGINS</div>
       <h2 class="origins-heading">Our<br><em>Sources.</em></h2>
     </div>
-    <p class="origins-sub">No shortcuts. No compromises.<br>Just the world's finest single-origin beans, straight from the source.</p>
   </div>
-  <div class="origins-divider"></div>
+  <div class="origins-divider-wrap">
+    <div class="origins-divider"></div>
+    <div class="origins-divider-bean">
+      <img src="origin-center.jpg" alt="">
+    </div>
+  </div>
   <div class="origins-stage">
     <div class="origins-watermark">origins</div>
     <!-- Left -->
     <div class="origins-left-col">
       <div class="origins-item">
-        <span class="origins-dot">•</span>
         <div class="origins-name">Ethiopia</div>
         <div class="origins-cn">衣索比亞</div>
         <div class="origins-desc">Yirgacheffe<br>花果香、茉莉</div>
       </div>
       <div class="origins-item">
-        <span class="origins-dot">•</span>
         <div class="origins-name">Brazil</div>
         <div class="origins-cn">巴西</div>
         <div class="origins-desc">Cerrado<br>巧克力、醇厚</div>
@@ -398,7 +433,6 @@
     <!-- Center -->
     <div class="origins-center-col">
       <div class="origins-item origins-center-label">
-        <span class="origins-dot">•</span>
         <div class="origins-name">Guatemala</div>
         <div class="origins-cn">瓜地馬拉</div>
         <div class="origins-desc">Antigua<br>黑糖、煙燻</div>
@@ -410,13 +444,11 @@
     <!-- Right -->
     <div class="origins-right-col">
       <div class="origins-item">
-        <span class="origins-dot"></span>
         <div class="origins-name">Colombia</div>
         <div class="origins-cn">哥倫比亞</div>
         <div class="origins-desc">Huila<br>焦糖、堅果</div>
       </div>
       <div class="origins-item">
-        <span class="origins-dot"></span>
         <div class="origins-name">Kenya</div>
         <div class="origins-cn">肯亞</div>
         <div class="origins-desc">AA Grade<br>黑醋栗、莓果</div>
@@ -480,7 +512,7 @@
     </div>
     <div class="product-card">
       <div class="product-meta"><span>06</span><span>禮盒</span></div>
-      <div class="product-img"><img src="product-6.png" alt="精選禮盒"></div>
+      <div class="product-img"><img src="product-6.png" alt="客製禮盒"></div>
       <div class="product-info">
         <div class="product-row"><span class="product-name">客製禮盒</span><span class="product-price">NT$1,280</span></div>
         <div class="product-desc">五大產區精品豆組合，精美包裝送禮自用</div>
@@ -646,7 +678,7 @@
 
 <sv-agent
   agentProfileId="01KTX74V2H4B5V1PQ2GYMTG0MK"
-  presentationMode="floating"
+  presentationMode="embedded"
   apiKey="0c2b2faf-dfac-4426-9b49-d52c15b587e4"
 ></sv-agent>
 
