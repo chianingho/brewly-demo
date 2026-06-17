@@ -73,23 +73,7 @@
     .btn-outline { background: transparent; border: 2px solid #C44B2A; color: #C44B2A; padding: 9px 36px; font-size: 0.82rem; letter-spacing: 0.1em; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 500; transition: background 0.25s, color 0.25s; }
     .btn-outline:hover { background: #C44B2A; color: var(--white); }
 
-    /* Hero floating bean (破圖效果) */
-    .hero-bean-float {
-      position: absolute;
-      bottom: -28px;
-      right: 180px;
-      width: 44px;
-      height: 56px;
-      border-radius: 55% 45% 60% 40% / 48% 52% 58% 42%;
-      overflow: hidden;
-      z-index: 20;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-    }
-    .hero-bean-float img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-
-    /* SECTION COMMON */
+/* SECTION COMMON */
     section { padding: 100px 60px; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--brown-dark); line-height: 1.2; margin-bottom: 20px; }
@@ -115,26 +99,7 @@
       font-weight: normal; color: var(--white); line-height: 1.05;
     }
     .origins-heading em { font-style: italic; }
-    .origins-divider-wrap {
-      position: relative;
-      height: 1px;
-    }
-    .origins-divider { height: 1px; background: rgba(255,255,255,0.28); position: absolute; left: 0; right: 0; top: 0; }
-    .origins-divider-bean {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 42px;
-      height: 54px;
-      border-radius: 55% 45% 60% 40% / 48% 52% 58% 42%;
-      overflow: hidden;
-      z-index: 2;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-    }
-    .origins-divider-bean img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
+    .origins-divider { height: 1px; background: rgba(255,255,255,0.28); }
     .origins-stage {
       display: grid;
       grid-template-columns: 1fr 300px 1fr;
@@ -225,8 +190,8 @@
       font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(196,75,42,0.5);
       font-family: 'Montserrat', sans-serif; font-weight: 300;
     }
-    .product-img { height: 200px; overflow: hidden; background: #e8e4df; }
-    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .product-img { height: 280px; overflow: hidden; background: #f5f3ef; position: relative; }
+    .product-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s; }
     .product-card:hover .product-img img { transform: scale(1.04); }
     .product-info { padding: 16px; background: var(--white); }
     .product-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
@@ -394,10 +359,6 @@
       <a href="https://www.perxona.ai/demo-site" class="btn-outline">了解品牌</a>
     </div>
   </div>
-  <!-- 破圖豆子：從 Hero 底部跨入 Origins -->
-  <div class="hero-bean-float">
-    <img src="bean.png" alt="coffee bean">
-  </div>
 </section>
 
 <!-- ORIGINS -->
@@ -408,12 +369,7 @@
       <h2 class="origins-heading">Our<br><em>Sources.</em></h2>
     </div>
   </div>
-  <div class="origins-divider-wrap">
-    <div class="origins-divider"></div>
-    <div class="origins-divider-bean">
-      <img src="origin-center.jpg" alt="">
-    </div>
-  </div>
+  <div class="origins-divider"></div>
   <div class="origins-stage">
     <div class="origins-watermark">origins</div>
     <!-- Left -->
